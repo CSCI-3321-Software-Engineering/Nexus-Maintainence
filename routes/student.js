@@ -28,8 +28,9 @@ router.get('/dashboard', restrictAccess(roles.STUDENT), async (req, res) => {
                 {
                     path: 'schedule',
                     model: 'Schedule'
-                }
-            ]}).exec();
+                }],
+                options: {sort: {'schedule': 1 }}
+            }).exec();
         const classes = user.class;
         res.render('student/dashboard', { user: req.session.user, classes });
     } catch (err) {
@@ -95,7 +96,8 @@ router.get('/classes', restrictAccess(roles.STUDENT), async (req, res) => {
                     path: 'schedule',
                     model: 'Schedule'
                 }
-            ]
+            ],
+            options: {sort: {'schedule': 1 }}
             }).populate({
                 path: 'waitlist',
                 populate: [
@@ -115,7 +117,8 @@ router.get('/classes', restrictAccess(roles.STUDENT), async (req, res) => {
                         path: 'schedule',
                         model: 'Schedule'
                     }
-                ]
+                ],
+                options: {sort: {'schedule': 1 }}
             }).exec();
         const registeredClasses = user.class;
         console.log(registeredClasses);
