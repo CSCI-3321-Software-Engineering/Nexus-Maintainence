@@ -687,6 +687,7 @@ span {
     margin: 2rem 1rem;
 }
 
+
 .wishlist-classEntry>div,
 .register-classEntry>div {
     padding: 1rem 0;
@@ -978,6 +979,7 @@ hr {
 }
 
 #overlay {
+
     position: fixed;
     opacity: 0;
     top: 0;
